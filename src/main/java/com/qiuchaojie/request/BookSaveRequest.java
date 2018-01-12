@@ -1,7 +1,5 @@
 package com.qiuchaojie.request;
 
-import com.qiuchaojie.entity.Student;
-
 import java.math.BigDecimal;
 
 /**
@@ -11,13 +9,23 @@ import java.math.BigDecimal;
  */
 public class BookSaveRequest {
 
+    private Long id;
+
     private String name;
 
     private String type;
 
     private BigDecimal price;
 
-    private Integer studentId;
+    private Long studentId;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -43,11 +51,11 @@ public class BookSaveRequest {
         this.price = price;
     }
 
-    public Integer getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Integer studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 }
