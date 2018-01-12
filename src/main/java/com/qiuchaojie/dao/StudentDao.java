@@ -1,8 +1,11 @@
 package com.qiuchaojie.dao;
 
+import com.qiuchaojie.entity.Book;
 import com.qiuchaojie.entity.Student;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Table;
@@ -15,7 +18,7 @@ import javax.persistence.Table;
 @Repository
 @Table(name="t_student")
 @Qualifier("studentDao")
-public interface StudentDao extends CrudRepository<Student, Long > {
+public interface StudentDao extends PagingAndSortingRepository<Student, Long >, JpaSpecificationExecutor<Book> {
 
     /**
      * 根据姓氏查询学生
