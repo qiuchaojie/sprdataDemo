@@ -2,6 +2,7 @@ package com.qiuchaojie.controller;
 
 import com.qiuchaojie.dao.BookDao;
 import com.qiuchaojie.dao.StudentDao;
+import com.qiuchaojie.dto.BookAndStudentDto;
 import com.qiuchaojie.entity.Book;
 import com.qiuchaojie.entity.Student;
 import com.qiuchaojie.request.BookSaveRequest;
@@ -28,8 +29,6 @@ public class BookController {
 
     @RequestMapping("/save")
     public void save(BookSaveRequest request){
-
-
         Book book;
         if(null != request.getId()){
             book = bookDao.findOne(request.getId());
@@ -46,4 +45,9 @@ public class BookController {
         bookDao.save(book);
     }
 
+    @RequestMapping("/findCascade")
+    public BookAndStudentDto findCascade(Integer id){
+        BookAndStudentDto dto = bookDao.findBookAndStudent(id);
+        return dto;
+    }
 }
