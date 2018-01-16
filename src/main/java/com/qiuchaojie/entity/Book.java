@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * @date 2018/1/12
  */
 @Entity
-@Table(name="t_Book")
+@Table(name="t_book")
 public class Book {
 
     @Id
