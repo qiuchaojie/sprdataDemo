@@ -2,7 +2,7 @@ package com.qiuchaojie.controller;
 
 import com.qiuchaojie.dao.BookDao;
 import com.qiuchaojie.dao.StudentDao;
-import com.qiuchaojie.dto.BookAndStudentDto;
+import com.qiuchaojie.dto.BookDetailDto;
 import com.qiuchaojie.entity.Book;
 import com.qiuchaojie.entity.Student;
 import com.qiuchaojie.request.BookSaveRequest;
@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  *
@@ -49,8 +51,15 @@ public class BookController {
 
 
     @RequestMapping("/findCascade")
-    public BookAndStudentDto findCascade(Integer id){
-        BookAndStudentDto dto = bookDao.findBookAndStudent(id);
+    public BookDetailDto findCascade(Integer id){
+        BookDetailDto dto = bookDao.findBookAndStudent(id);
+        return dto;
+    }
+
+
+    @RequestMapping("/allNameByType")
+    public List<String> getIWant(String type){
+        List<String> dto = bookDao.allNameByType(type);
         return dto;
     }
 

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * @author qiuchaojie
  * @date 2018/1/12
  */
-public class BookAndStudentDto {
+public class BookDetailDto {
 
     private Long studentId;
     private String studentLastName;
@@ -17,7 +17,7 @@ public class BookAndStudentDto {
     private String bookName;
     private BigDecimal bookPrice;
 
-    public BookAndStudentDto(Long studentId, String studentLastName, String studentFirstName, Integer studentAge, Long bookId, String bookName, BigDecimal bookPrice) {
+    public BookDetailDto(Long studentId, String studentLastName, String studentFirstName, Integer studentAge, Long bookId, String bookName, BigDecimal bookPrice) {
         this.studentId = studentId;
         this.studentLastName = studentLastName;
         this.studentFirstName = studentFirstName;
