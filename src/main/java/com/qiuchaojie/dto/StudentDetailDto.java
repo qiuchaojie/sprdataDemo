@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * Created by qiuchaojie on 2018/1/12.
  */
-public class StudentListDto {
+public class StudentDetailDto {
 
     private Long id;
     private Integer age;
@@ -18,7 +18,7 @@ public class StudentListDto {
     private String gender;
     private Set<BookListDto> books = new HashSet<>();
 
-    public StudentListDto(Student student) {
+    public StudentDetailDto(Student student) {
         this.id = student.getId();
         this.age = student.getAge();
         this.firstName = student.getFirstName();
