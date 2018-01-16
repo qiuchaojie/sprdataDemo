@@ -20,7 +20,7 @@ import java.util.List;
 @Repository
 @Table(name="t_book")
 @Qualifier("bookDao")
-public interface BookDao extends PagingAndSortingRepository<Book, Long >,JpaSpecificationExecutor<Book> {
+public interface BookDao extends PagingAndSortingRepository<Book, Long>,JpaSpecificationExecutor<Book> {
 
 
     /**
