@@ -3,6 +3,7 @@ package com.qiuchaojie.controller;
 import com.qiuchaojie.dao.StudentDao;
 import com.qiuchaojie.dto.StudentDetailDto;
 import com.qiuchaojie.entity.Student;
+import com.qiuchaojie.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,8 @@ public class StudentController {
     @Autowired
     private StudentDao studentDao;
 
+    @Autowired
+    private StudentService studentService;
 
     @RequestMapping("list")
     public List<StudentDetailDto> list(Pageable pageable) {
@@ -49,22 +52,25 @@ public class StudentController {
 
 
     @RequestMapping("findByLastName")
-    public Student findByLastName(String lastName) {
-        Student student = studentDao.getByLastName(lastName);
-        return student;
+    public StudentDetailDto findByLastName(String lastName) {
+        Student student = studentService.getByLastName(lastName);
+        StudentDetailDto dto = new StudentDetailDto(student);
+        return dto;
     }
 
 
     @RequestMapping("findByFirstName")
-    public Student findByFirstName(String firstName) {
+    public StudentDetailDto findByFirstName(String firstName) {
         Student student = studentDao.getByFirstName(firstName);
-        return student;
+        StudentDetailDto dto = new StudentDetailDto(student);
+        return dto;
     }
 
 
     @RequestMapping("getByFirstNameAndAge")
-    public Student getByFirstNameAndAge(String firstName, int age) {
+    public StudentDetailDto getByFirstNameAndAge(String firstName, int age) {
         Student student = studentDao.getByFirstNameAndAge(firstName, age);
-        return student;
+        StudentDetailDto dto = new StudentDetailDto(student);
+        return dto;
     }
 }

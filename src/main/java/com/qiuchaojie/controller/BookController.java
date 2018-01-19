@@ -68,4 +68,11 @@ public class BookController {
     public void showBookFromWeb(@PathVariable("id") Book book){
         System.out.println(book);
     }
+
+
+    @RequestMapping("buyBook/{studentId}/{bookId}")
+    public void buyBook(@PathVariable("bookId") Book book, @PathVariable("studentId") Student student){
+        book.setStudent(student);
+        bookDao.save(book);
+    }
 }
